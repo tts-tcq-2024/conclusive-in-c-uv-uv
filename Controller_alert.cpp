@@ -8,6 +8,6 @@ void sendToController(BreachType breachType, void (*sendfunction)(const char* me
 {
   const unsigned short header = 0xfeed;
   char messagetocontroller[256];
-  snprintf(messagetocontroller, sizeof(messagetocontroller),"%x : %x\n", header, breachType)
+  snprintf(messagetocontroller, sizeof(messagetocontroller),"%x : %x\n", header, breachType);
   sendfunction(messagetocontroller);
 }
