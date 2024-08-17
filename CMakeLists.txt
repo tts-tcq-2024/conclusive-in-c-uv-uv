@@ -21,6 +21,7 @@ add_executable(
   typewise-alert.cpp
   email_alert.cpp
   Controller_alert.cpp
+  Printonconsole.cpp
   typewise-alert.tests.cpp
 )
 target_link_libraries(
