@@ -9,9 +9,9 @@
 
 MockFunctions* mockFunctions;
 
-void mockSendToConsole(const char* message) 
+void mocksendToConsole(const char* message) 
 {
-    mockFunctions->SendToConsole(message);
+    mockFunctions->sendToConsole(message);
 }
 class CheckAndAlertTest : public ::testing::Test {
 protected:
@@ -28,6 +28,6 @@ TEST_F(CheckAndAlertTest, PassiveCoolingTooLowCorrectMessageToController)
 {
     BatteryCharacter batterychar = {PASSIVE_COOLING,"BrandA"};
     double temperatureInC = -1;
-    EXPECT_CALL(*mockFunctions, SendToConsole("feed : 1\n")).Times(1);
+    EXPECT_CALL(*mockFunctions, sendToConsole("feed : 1\n")).Times(1);
     checkAndAlert(TO_CONTROLLER, batterychar, temperatureInC);
 }

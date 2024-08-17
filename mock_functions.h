@@ -6,7 +6,7 @@
 class MockFunctions 
 {
 public:
-    MOCK_METHOD(void, SendToConsole, (const char* message));
+    MOCK_METHOD(void, sendToConsole, (const char* message));
 };
 
 #endif
