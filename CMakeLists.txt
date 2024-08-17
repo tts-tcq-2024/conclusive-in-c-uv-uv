@@ -22,6 +22,7 @@ add_executable(
   email_alert.cpp
   Controller_alert.cpp
   Printonconsole.cpp
+  temperature_alert.cpp
   typewise-alert.tests.cpp
 )
 target_link_libraries(
