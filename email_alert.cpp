@@ -5,7 +5,7 @@
 #include <string.h>
 
 
-void sendToEmail(BreachType breachType, void (*sendfunction)(const char* message)) 
+void sendToEmail(BreachType breachType, SendFunction sendFunction) 
 {
   const char* recepient = "a.b@c.com";
   const char* breach_message[] = 
@@ -16,6 +16,6 @@ void sendToEmail(BreachType breachType, void (*sendfunction)(const char* message
   {
     char fullMessage[256];
     snprintf(fullMessage,sizeof(fullMessage),"To%s\n%s", recepient, breach_message[breachType]);
-    sendfunction(fullMessage);
+    sendFunction(fullMessage);
   }
 }

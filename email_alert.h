@@ -1,7 +1,8 @@
 #ifndef EMAIL_ALERT_H
 #define EMAIL_ALERT_H
 
-void sendToEmail(BreachType breachType, void (*sendFunction)(const char* message));
+typedef void (*SendFunction)(const char* message);
+void sendToEmail(BreachType breachType, SendFunction sendFunction);
 
 
 #endif 

@@ -1,7 +1,8 @@
 #ifndef CONTROLLER_ALERT_H
 #define CONTROLLER_ALERT_H
 
-void sendToController(BreachType breachType, void (*sendFunction)(const char* message));
+typedef void (*SendFunction)(const char* message);
+void sendToController(BreachType breachType, SendFunction sendFunction);
 
 
 #endif 
