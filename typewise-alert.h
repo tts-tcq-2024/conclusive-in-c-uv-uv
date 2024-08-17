@@ -1,4 +1,5 @@
 #pragma once
+#include "temperature_alert.h"
 typedef enum {
   TO_CONTROLLER,
   TO_EMAIL
