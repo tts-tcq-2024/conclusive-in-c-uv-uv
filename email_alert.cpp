@@ -3,6 +3,12 @@
 #include <stdio.h>
 #include <string.h>
 
+
+void sendToConsole(const char* message) 
+{
+    printf("%s", message);
+}
+
 void sendToEmail(BreachType breachType, void (*sendfunction)(const char* message)) 
 {
   const char* recepient = "a.b@c.com";
@@ -16,9 +22,4 @@ void sendToEmail(BreachType breachType, void (*sendfunction)(const char* message
     snprintf(fullMessage,sizeof(fullMessage),"To%s\n%s", recepient, breach_message[breachType]);
     sendfunction(fullMessage);
   }
-}
-
-void sendToConsole(const char* message) 
-{
-    printf("%s", message);
 }
