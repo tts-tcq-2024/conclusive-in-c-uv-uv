@@ -1,6 +1,7 @@
 #include "typewise-alert.h"
 #include "email_alert.h"
-#include <stdio.h>
+#include "Printonconsole.h"
+#include "Controller_alert.h"
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   if(value < lowerLimit) {
@@ -29,7 +30,7 @@ void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
   switch(alertTarget) {
     case TO_CONTROLLER:
-      sendToController(breachType);
+      sendToController(breachType,sendToConsole);
       break;
     case TO_EMAIL:
       sendToEmail(breachType,sendToConsole);
@@ -37,9 +38,6 @@ void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double
   }
 }
 
-void sendToController(BreachType breachType) {
-  const unsigned short header = 0xfeed;
-  printf("%x : %x\n", header, breachType);
-}
+
 
 

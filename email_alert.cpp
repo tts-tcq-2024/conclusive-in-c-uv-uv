@@ -1,13 +1,9 @@
 #include "typewise-alert.h"
 #include "email_alert.h"
+#include "Printonconsole.h"
 #include <stdio.h>
 #include <string.h>
 
-
-void sendToConsole(const char* message) 
-{
-    printf("%s", message);
-}
 
 void sendToEmail(BreachType breachType, void (*sendfunction)(const char* message)) 
 {
