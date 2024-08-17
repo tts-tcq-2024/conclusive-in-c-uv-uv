@@ -7,7 +7,8 @@
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
 {
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
-  switch(alertTarget) {
+  switch(alertTarget) 
+  {
     case TO_CONTROLLER:
       sendToController(breachType,sendToConsole);
       break;
