@@ -77,5 +77,6 @@ INSTANTIATE_TEST_SUITE_P(
         TestCase{"MED-ActiveCoolingNormalNoMessageToMail", MED_ACTIVE_COOLING, "BrandB", 36, TO_EMAIL, nullptr, sendToConsole},
         TestCase{"Hi-ActiveCoolingNormalNoMessageToMail", HI_ACTIVE_COOLING, "BrandB", 44, TO_EMAIL, nullptr, sendToConsole},
         TestCase{"PassiveCoolingNormalNoMessageToMail", PASSIVE_COOLING, "BrandB", 33, TO_EMAIL, nullptr, sendToConsole},
+        TestCase{"PassiveCoolingNormalNoMessageToMail", PASSIVE_COOLING, "BrandB", 44, TO_EMAIL, nullptr, mocksendToConsole}
     )
 );
