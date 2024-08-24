@@ -74,6 +74,7 @@ INSTANTIATE_TEST_SUITE_P(
         TestCase{"Hi-ActiveCoolingTooLowCorrectMessageToMail", HI_ACTIVE_COOLING, "BrandB", -1, TO_EMAIL, "Toa.b@c.com\nHi, the temperature is too low\n", mocksendToConsole},
         TestCase{"MED-ActiveCoolingTooLowCorrectMessageToMail", MED_ACTIVE_COOLING, "BrandB", -5, TO_EMAIL, "Toa.b@c.com\nHi, the temperature is too low\n", mocksendToConsole},
         TestCase{"MED-ActiveCoolingTooHighCorrectMessageToMail", MED_ACTIVE_COOLING, "BrandB", 44, TO_EMAIL, "Toa.b@c.com\nHi, the temperature is too high\n", mocksendToConsole},
+        TestCase{"MED-ActiveCoolingTooHighCorrectMessageToMail", MED_ACTIVE_COOLING, "BrandB", 44, TO_EMAIL, "Toa.b@c.com\nHi, the temperature is too high\n", sendToConsole},
         TestCase{"MED-ActiveCoolingNormalNoMessageToMail", MED_ACTIVE_COOLING, "BrandB", 36, TO_EMAIL, nullptr, sendToConsole},
         TestCase{"Hi-ActiveCoolingNormalNoMessageToMail", HI_ACTIVE_COOLING, "BrandB", 44, TO_EMAIL, nullptr, sendToConsole},
         TestCase{"PassiveCoolingNormalNoMessageToMail", PASSIVE_COOLING, "BrandB", 33, TO_EMAIL, nullptr, sendToConsole}
