@@ -20,7 +20,7 @@ void mocksendToConsole(const char* message)
 {
     mockFunctions->sendToConsole(message);
 }
-class CheckAndAlertTest : public ::TestWithParam<TestCase> {
+class CheckAndAlertTest : public ::testing::TestWithParam<TestCase> {
 protected:
     void SetUp() override 
     {
@@ -37,7 +37,7 @@ protected:
         std::cout << "Running the test case:" << testcase.title << std::endl;
         BatteryCharacter batterychar;
         batterychar.coolingType = testcase.coolingType;
-        strncpy(batterychar.brand, testcase.brandName.c_str(), sizeof(batteryChar.brand));
+        strncpy(batterychar.brand, testcase.brandName.c_str(), sizeof(batterychar.brand));
         if (testcase.expectedMessage != nullptr)
         {
             EXPECT_CALL(*mockFunctions, sendToConsole(::testing::StrEq(testcase.expectedMessage))).Times(1);
@@ -53,12 +53,13 @@ protected:
 TEST_P(CheckAndAlertTest, CheckAndAlertParameterized) 
 {
     TestCase testCase = GetParam();
-    CommonTestFunction(testCase);
+    TestFunction(testCase);
 }
 INSTANTIATE_TEST_SUITE_P(
     AllCases,
     CheckAndAlertTest,
     ::testing::Values(
-        TestCase{"PassiveCoolingTooLowCorrectMessageToController","BrandA", PASSIVE_COOLING, -1, TO_CONTROLLER, "feed : 1\n", mocksendToConsole}
+        TestCase{"PassiveCoolingTooLowCorrectMessageToController", PASSIVE_COOLING, "BrandA", -1, TO_CONTROLLER, "feed : 1\n", mocksendToConsole}
+        // Add other test cases as needed
     )
 );
