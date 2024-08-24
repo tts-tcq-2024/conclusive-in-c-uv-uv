@@ -56,7 +56,7 @@ TEST_P(CheckAndAlertTest, CheckAndAlertParameterized)
     TestFunction(testCase);
 }
 INSTANTIATE_TEST_SUITE_P(
-    AllCases,
+    AllCases,  
     CheckAndAlertTest,
     ::testing::Values(
         TestCase{"PassiveCoolingTooLowCorrectMessageToController", PASSIVE_COOLING, "BrandA", -1, TO_CONTROLLER, "feed : 1\n", mocksendToConsole},
@@ -64,6 +64,9 @@ INSTANTIATE_TEST_SUITE_P(
         TestCase{"Hi-ActiveCoolingTooHighCorrectMessageToController", HI_ACTIVE_COOLING, "BrandA", 50, TO_CONTROLLER, "feed : 2\n", mocksendToConsole},
         TestCase{"Hi-ActiveCoolingTooLowCorrectMessageToController", HI_ACTIVE_COOLING, "BrandA", -1, TO_CONTROLLER, "feed : 1\n", mocksendToConsole},
         TestCase{"MED-ActiveCoolingTooLowCorrectMessageToController", MED_ACTIVE_COOLING, "BrandA", -5, TO_CONTROLLER, "feed : 1\n", mocksendToConsole},
-        TestCase{"MED-ActiveCoolingTooHighCorrectMessageToController", MED_ACTIVE_COOLING, "BrandA", 44, TO_CONTROLLER, "feed : 2\n", mocksendToConsole}
+        TestCase{"MED-ActiveCoolingTooHighCorrectMessageToController", MED_ACTIVE_COOLING, "BrandA", 44, TO_CONTROLLER, "feed : 2\n", mocksendToConsole},
+        TestCase{"MED-ActiveCoolingNormalNoMessageToController", MED_ACTIVE_COOLING, "BrandA", 36, TO_CONTROLLER, nullptr, sendToConsole},
+        TestCase{"Hi-ActiveCoolingNormalNoMessageToController", HI_ACTIVE_COOLING, "BrandA", 44, TO_CONTROLLER, nullptr, sendToConsole},
+        TestCase{"PassiveCoolingNormalNoMessageToController", PASSIVE_COOLING, "BrandA", 44, TO_CONTROLLER, nullptr, sendToConsole}
     )
 );
