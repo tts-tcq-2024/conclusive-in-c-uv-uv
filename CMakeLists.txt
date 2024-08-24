@@ -19,6 +19,10 @@ add_compile_options("--coverage")
 add_executable(
   cleancode
   typewise-alert.cpp
+  email_alert.cpp
+  Controller_alert.cpp
+  Printonconsole.cpp
+  temperature_alert.cpp
   typewise-alert.tests.cpp
 )
 target_link_libraries(
