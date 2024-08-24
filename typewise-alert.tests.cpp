@@ -9,7 +9,7 @@
 struct TestCase {
     std::string title;
     CoolingType coolingType;
-    const char* brandName;
+    std::string brandName;
     double temperatureInC;
     AlertTarget alertTarget;
     const char* expectedMessage;
@@ -20,7 +20,7 @@ void mocksendToConsole(const char* message)
 {
     mockFunctions->sendToConsole(message);
 }
-class CheckAndAlertTest : public ::testing::Test {
+class CheckAndAlertTest : public ::TestWithParam<TestCase> {
 protected:
     void SetUp() override 
     {
@@ -35,7 +35,9 @@ protected:
     void TestFunction(const TestCase& testcase)
     {
         std::cout << "Running the test case:" << testcase.title << std::endl;
-        BatteryCharacter batterychar = {testcase.coolingType,testcase.brandName};
+        BatteryCharacter batterychar;
+        batterychar.coolingType = testcase.coolingType;
+        strncpy(batterychar.brand, testcase.brandName.c_str(), sizeof(batteryChar.brand));
         if (testcase.expectedMessage != nullptr)
         {
             EXPECT_CALL(*mockFunctions, sendToConsole(::testing::StrEq(testcase.expectedMessage))).Times(1);
