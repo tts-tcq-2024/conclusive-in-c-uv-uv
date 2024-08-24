@@ -4,16 +4,16 @@
 #include "Controller_alert.h"
 
 
-void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
+void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC, void (*sendToConsoleFunc)(const char* message)) 
 {
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
   switch(alertTarget) 
   {
     case TO_CONTROLLER:
-      sendToController(breachType,sendToConsole);
+      sendToController(breachType,sendToConsoleFunc);
       break;
     case TO_EMAIL:
-      sendToEmail(breachType,sendToConsole);
+      sendToEmail(breachType,sendToConsoleFunc);
       break;
   }
 }

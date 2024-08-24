@@ -10,6 +10,6 @@ typedef struct {
   char brand[48];
 } BatteryCharacter;
 
-void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
+void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC, void (*sendToConsoleFunc)(const char* message));
 
 
