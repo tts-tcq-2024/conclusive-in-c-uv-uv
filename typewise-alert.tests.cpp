@@ -28,6 +28,6 @@ TEST_F(CheckAndAlertTest, PassiveCoolingTooLowCorrectMessageToController)
 {
     BatteryCharacter batterychar = {PASSIVE_COOLING,"BrandA"};
     double temperatureInC = -1;
+    EXPECT_CALL(*mockFunctions, sendToConsole(::testing::StrEq("feed : 1\n"))).Times(1);
     checkAndAlert(TO_CONTROLLER, batterychar, temperatureInC, mocksendToConsole);
-    EXPECT_CALL(*mockFunctions, sendToConsole("feed : 1\n")).Times(1);
 }
