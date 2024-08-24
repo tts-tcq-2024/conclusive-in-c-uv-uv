@@ -67,12 +67,15 @@ INSTANTIATE_TEST_SUITE_P(
         TestCase{"MED-ActiveCoolingTooHighCorrectMessageToController", MED_ACTIVE_COOLING, "BrandA", 44, TO_CONTROLLER, "feed : 2\n", mocksendToConsole},
         TestCase{"MED-ActiveCoolingNormalNoMessageToController", MED_ACTIVE_COOLING, "BrandA", 36, TO_CONTROLLER, nullptr, sendToConsole},
         TestCase{"Hi-ActiveCoolingNormalNoMessageToController", HI_ACTIVE_COOLING, "BrandA", 44, TO_CONTROLLER, nullptr, sendToConsole},
-        TestCase{"PassiveCoolingNormalNoMessageToController", PASSIVE_COOLING, "BrandA", 44, TO_CONTROLLER, nullptr, sendToConsole},
+        TestCase{"PassiveCoolingNormalNoMessageToController", PASSIVE_COOLING, "BrandA", 33, TO_CONTROLLER, nullptr, sendToConsole},
         TestCase{"PassiveCoolingTooLowCorrectMessageToMail", PASSIVE_COOLING, "BrandB", -1, TO_EMAIL, "Toa.b@c.com\nHi, the temperature is too low\n", mocksendToConsole},
         TestCase{"PassiveCoolingTooHighCorrectMessageToMail", PASSIVE_COOLING, "BrandB", 38, TO_EMAIL, "Toa.b@c.com\nHi, the temperature is too high\n", mocksendToConsole},
-        TestCase{"Hi-ActiveTooHighCorrectMessageToMail", HI_ACTIVE_COOLING, "BrandB", 50, TO_EMAIL, "Toa.b@c.com\nHi, the temperature is too high\n", mocksendToConsole},
-        TestCase{"Hi-ActiveTooLowCorrectMessageToMail", HI_ACTIVE_COOLING, "BrandB", -1, TO_EMAIL, "Toa.b@c.com\nHi, the temperature is too low\n", mocksendToConsole},
-        TestCase{"MED-ActiveTooLowCorrectMessageToMail", MED_ACTIVE_COOLING, "BrandB", -5, TO_EMAIL, "Toa.b@c.com\nHi, the temperature is too low\n", mocksendToConsole},
-        TestCase{"MED-ActiveTooHighCorrectMessageToMail", MED_ACTIVE_COOLING, "BrandB", 44, TO_EMAIL, "Toa.b@c.com\nHi, the temperature is too high\n", mocksendToConsole}
+        TestCase{"Hi-ActiveCoolingTooHighCorrectMessageToMail", HI_ACTIVE_COOLING, "BrandB", 50, TO_EMAIL, "Toa.b@c.com\nHi, the temperature is too high\n", mocksendToConsole},
+        TestCase{"Hi-ActiveCoolingTooLowCorrectMessageToMail", HI_ACTIVE_COOLING, "BrandB", -1, TO_EMAIL, "Toa.b@c.com\nHi, the temperature is too low\n", mocksendToConsole},
+        TestCase{"MED-ActiveCoolingTooLowCorrectMessageToMail", MED_ACTIVE_COOLING, "BrandB", -5, TO_EMAIL, "Toa.b@c.com\nHi, the temperature is too low\n", mocksendToConsole},
+        TestCase{"MED-ActiveCoolingTooHighCorrectMessageToMail", MED_ACTIVE_COOLING, "BrandB", 44, TO_EMAIL, "Toa.b@c.com\nHi, the temperature is too high\n", mocksendToConsole},
+        TestCase{"MED-ActiveCoolingNormalNoMessageToMail", MED_ACTIVE_COOLING, "BrandB", 36, TO_EMAIL, nullptr, sendToConsole},
+        TestCase{"Hi-ActiveCoolingNormalNoMessageToMail", HI_ACTIVE_COOLING, "BrandB", 44, TO_EMAIL, nullptr, sendToConsole},
+        TestCase{"PassiveCoolingNormalNoMessageToMail", PASSIVE_COOLING, "BrandB", 33, TO_EMAIL, nullptr, sendToConsole},
     )
 );
