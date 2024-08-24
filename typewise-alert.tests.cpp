@@ -57,6 +57,6 @@ INSTANTIATE_TEST_SUITE_P(
     AllCases,
     CheckAndAlertTest,
     ::testing::Values(
-        TestCase{"PassiveCoolingTooLowCorrectMessageToController", PASSIVE_COOLING, -1, TO_CONTROLLER, "feed : 1\n", "BrandA", mocksendToConsole}
+        TestCase{"PassiveCoolingTooLowCorrectMessageToController","BrandA", PASSIVE_COOLING, -1, TO_CONTROLLER, "feed : 1\n", mocksendToConsole}
     )
 );
